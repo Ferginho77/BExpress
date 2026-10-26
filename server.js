@@ -3,6 +3,7 @@ require("dotenv").config();
 const app = require("./src/app");
 const sequelize = require("./src/config/db");
 
+
 const PORT = process.env.PORT || 5001;
 
 async function startServer() {
@@ -19,5 +20,5 @@ async function startServer() {
         process.exit(1);
     }
 }
-
+module.exports = app;
 startServer();
