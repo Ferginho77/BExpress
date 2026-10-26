@@ -1,10 +1,7 @@
 
-require("dotenv").config();
+const app = require("../src/app");
+const sequelize = require("../src/config/db");
 
-const app = require("./src/app");
-const sequelize = require("./src/config/db");
-
-// Inisialisasi koneksi database sebelum memproses request.
 let dbConnection;
 
 app.use(async (req, res, next) => {
@@ -20,6 +17,7 @@ app.use(async (req, res, next) => {
         next();
     } catch (error) {
         console.error("Database connection failed:", error);
+
         res.status(500).json({
             message: "Database connection failed",
         });
